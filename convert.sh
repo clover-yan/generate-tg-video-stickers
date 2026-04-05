@@ -22,7 +22,7 @@ mkdir -p "$output_dir"
 for input_file in "${input_dir}"/*.gif; do
 	[ -e "$input_file" ] || continue
 	
-	base_name="${input_file%.*}"
+	base_name="$(basename "${input_file%.*}")"
 	output_file="${output_dir}/output.webm"
 	output_file_final="${output_dir}/${base_name}.webm"
 	
