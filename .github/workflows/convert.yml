@@ -1,0 +1,26 @@
+name: Convert stickers
+
+on: push
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Set up FFmpeg
+        uses: FedericoCarboni/setup-ffmpeg@v3
+
+      - name: Convert stickers
+        run: |
+          bash convert.sh
+
+      - name: Upload converted stickers
+        uses: actions/upload-artifact@v7
+        with:
+          name: output
+          path: output/
+          compression-level: 0
