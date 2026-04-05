@@ -1,6 +1,9 @@
 name: Convert stickers
 
-on: push
+on:
+  push:
+    branches-ignore:
+      - master
 
 jobs:
   convert:
